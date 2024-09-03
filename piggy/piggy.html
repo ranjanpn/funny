@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes or No Question</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            background-image: url('piggy.jpg'); /* Replace with your image path */
+            background-size: cover; /* Make the image cover the entire background */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            margin: 0; /* Remove default body margin */
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Shadow for a lifted effect */
+        }
+
+        .headd {
+            position: absolute;
+            bottom: 20px; /* Position at the bottom with some spacing */
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+            border-radius: 10px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF; /* Primary blue color */
+            color: white;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: scale(1.05); /* Slightly increase button size on hover */
+        }
+
+        button:active {
+            background-color: #00408d; /* Even darker blue on click */
+            transform: scale(1); /* Reset the button size */
+        }
+
+        p {
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+  <div class="headd">
+      <h1 id="heading"></h1>
+  </div>
+  
+  <div class="container">
+      <h1>Are you piggy🐷?</h1>
+      <div class="buttons">
+          <button id="yesButton" onclick="document.querySelector('#heading').innerHTML='Hiiiiii piggy🐷🐷🐷'">Yes</button>
+          <button id="noButton">No</button>
+      </div>
+      <p id="answer" style="display: none;">That's great! Keep coding!</p>
+  </div>
+
+  <script>
+      const yesButton = document.getElementById('yesButton');
+      const noButton = document.getElementById('noButton');
+      const cta = document.querySelector(".buttons");
+
+      noButton.addEventListener('mouseenter', () => {
+          const yesidx = Array.from(cta.children).indexOf(yesButton);
+          const noidx = Array.from(cta.children).indexOf(noButton);
+
+          if (yesidx < noidx) {
+              cta.insertBefore(noButton, yesButton);
+          } else {
+              cta.insertBefore(yesButton, noButton);
+          }
+      });
+  </script>
+</body>
+</html>
